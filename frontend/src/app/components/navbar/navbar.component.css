@@ -1,0 +1,125 @@
+.botonera {
+  color: white;
+  background: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+.boton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.boton i {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.reproducir {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  width: 15%;
+  height: 40px;
+  background: white;
+  color: black;
+}
+
+@media (max-width: 900px) {
+  .reproducir {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    width: 30%;
+    height: 40px;
+    background: white;
+    color: black;
+  }
+
+  .reproducir h5 {
+    font-weight: lighter;
+    margin: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .boton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .boton h5 {
+    font-size: 15px;
+    font-weight: lighter;
+  }
+
+  .boton i {
+    padding: 5px;
+    font-size: 15px;
+    font-weight: lighter;
+  }
+
+  .reproducir {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    width: 30%;
+    height: 40px;
+    background: white;
+    color: black;
+  }
+
+  .reproducir h5 {
+    font-size: 15px;
+    font-weight: lighter;
+    margin: 0;
+  }
+}
+
+.peliculas {
+  background: black;
+  color: white;
+}
+
+.peliculas h4 {
+  padding: 20px 15px;
+}
+
+.scrollmenu {
+  background-color: black;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.scrollmenu img {
+  display: inline-block;
+  color: white;
+  padding: 15px;
+}
+
+@media (max-width: 500px) {
+  .scrollmenu img {
+    width: 45%;
+  }
+}
+
+.footer {
+  height: 60px;
+  text-align: center;
+  padding: 20px 0px;
+  background: black;
+  color: white;
+}
