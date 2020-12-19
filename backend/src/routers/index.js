@@ -7,3 +7,5 @@ router.get('/', (req,res) => {
         "message": "Hello"
     });
 });
+
+module.exports = router;
