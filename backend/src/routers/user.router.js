@@ -5,10 +5,10 @@ const router = Router();
 const { findAll, findOne, create, update, delet } = require('../controller/user.controller');
 
 
-router.get('/api/users', findAll);
-router.get('/api/users/:codigo', findOne);
-router.post('/api/users' , create);
-router.delete('/api/users/:codigo' , delet);
-router.put('/api/users/:codigo' , update);
+router.get('/api/user', findAll);
+router.get('/api/user/:codigo', findOne);
+router.post('/api/user' , create);
+router.delete('/api/user/:codigo' , delet);
+router.put('/api/user/:codigo' , update);
 
 module.exports = router;

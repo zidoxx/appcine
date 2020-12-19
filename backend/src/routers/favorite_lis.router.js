@@ -5,10 +5,10 @@ const router = Router();
 const { findAll, findOne, create, update, delet } = require('../controller/favorite_list.controller');
 
 
-router.get('/api/favorites_lists', findAll);
-router.get('/api/favorites_lists/:codigo', findOne);
-router.post('/api/favorites_lists' , create);
-router.delete('/api/favorites_lists/:codigo' , delet);
-router.put('/api/favorites_lists/:codigo' , update);
+router.get('/api/favorite_lists', findAll);
+router.get('/api/favorite_lists/:codigo', findOne);
+router.post('/api/favorite_lists' , create);
+router.delete('/api/favorites_list/:codigo' , delet);
+router.put('/api/favorites_list/:codigo' , update);
 
 module.exports = router;

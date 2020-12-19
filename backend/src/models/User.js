@@ -9,12 +9,12 @@ const UserShema = mongoose.Schema({
     },
     nombre: {
         type: String,
-        minlength: 5,
+        minlength: 3,
         require: true
     },
     email: {
         type: String,
-        minlength: 6,
+        minlength: 4,
         require: true
     },
     co_tipo_usuario: {
