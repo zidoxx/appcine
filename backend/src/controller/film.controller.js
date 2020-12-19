@@ -1,41 +1,39 @@
-const Film = require('../models/Film');
+const Film = require("../models/Film");
 
-const findAll = (req , res) => {
-
+const findAll = (req, res) => {
     Film.find()
-        .then(films => {
+        .then((films) => {
             res.status(200).send(films);
-        }).catch (err => {
+        })
+        .catch((err) => {
             res.status(500).send({
-                "message": "Ocurrio un problema" || err.message
+                message: "Ocurrio un problema" || err.message,
             });
         });
 };
 
-const findOne = (req , res) => {
-
+const findOne = (req, res) => {
     var cod = parseInt(req.params.codigo);
-    Film.find({"codigo": cod})
-        .then(films => {
-            if(films.length == 0){
+    Film.find({ codigo: cod })
+        .then((films) => {
+            if (films.length == 0) {
                 console.log("No encontró films");
                 res.status(404).send({
-                    "message": "No encontró el films"
+                    message: "No encontró el films",
                 });
-            } else{
+            } else {
                 console.log("Encontró films");
                 res.status(200).send(films);
             }
-            
-        }).catch (err => {
+        })
+        .catch((err) => {
             res.status(500).send({
-                "message": "Ocurrio un problema" || err.message
+                message: "Ocurrio un problema" || err.message,
             });
         });
 };
 
-const create = (req , res) => {
-
+const create = (req, res) => {
     const film = new Film({
         codigo: req.body.codigo,
         nombre: req.body.nombre,
@@ -45,67 +43,70 @@ const create = (req , res) => {
         creadores: req.body.creadores,
         imagen: {
             pequeno: req.body.imagen.pequeno,
-            grande: req.body.imagen.grande
+            grande: req.body.imagen.grande,
         },
         co_categoria: req.body.co_categoria,
-        co_genero: req.body.co_genero
+        co_clasificacion: req.body.co_clasificacion,
     });
-
     film.save()
-        .then(data => {
-            res.status(200).send(data);
-        }).catch (err => {
-            res.status(500).send({
-                "message": "Ocurrio un problema" || err.message
-            });
+        .then((datos) => {
+            res.status(200).send("Film Creado Correctamente");
+        })
+        .catch((err) => {
+            res.status(500).send(err);
         });
 };
 
 const update = (req, res) => {
     var cod = parseInt(req.params.codigo);
     Film.update(
-        {"codigo" : cod},
+        { codigo: cod },
         {
-            $set:{
+            $set: {
                 nombre: req.body.nombre,
                 duracion: req.body.duracion,
                 descripcion: req.body.descripcion,
                 elenco: req.body.elenco,
                 creadores: req.body.creadores,
+                imagen: {
+                    pequeno: req.body.imagen.pequeno,
+                    grande: req.body.imagen.grande,
+                },
                 co_categoria: req.body.co_categoria,
-                co_genero: req.body.co_genero
-            }
+                co_clasificacion: req.body.co_clasificacion,
+            },
         }
     )
-    .then(film => {
-        res.status(200).send(film);        
-    }).catch(err => {
-        res.status(500).send("Ocurrio un error");
-    });
+        .then((film) => {
+            res.status(200).send(film);
+        })
+        .catch((err) => {
+            res.status(500).send("Ocurrio un error");
+        });
 };
 
 const delet = (req, res) => {
     var cod = parseInt(req.params.codigo);
     Film.remove({
-        "codigo": cod})
-        .then (film => {
-            
-            if(film.deleteCount == 0) {
+        codigo: cod,
+    })
+        .then((film) => {
+            if (film.deleteCount == 0) {
                 console.log("No Borró");
                 res.status(404).send("no encontró el film");
-            }else {
+            } else {
                 res.status(200).send("film eliminado ");
             }
-        }).catch(err => {
+        })
+        .catch((err) => {
             res.status(500).send("Ocurrio un error");
-    });
+        });
 };
-
 
 module.exports = {
     findAll,
     findOne,
     create,
     update,
-    delet
-}
+    delet,
+};
