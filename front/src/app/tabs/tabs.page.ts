@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-tabs',
@@ -6,7 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
+  films: any;
 
-  constructor() {}
+  constructor(
+    private apiService: ApiService) {}
+
+
+    getFilms() {
+      this.apiService.getFilms().subscribe((data) => {
+        this.films = data;
+        console.log(this.films);
+      })
+    }
 
 }
