@@ -7,6 +7,123 @@
         </ion-button>
     </ion-toolbar>
 </ion-header>
-<ion-row color="dark">
-    <img src="assets/img/Jonhwick3 Banner.jpg" alt="" />
-</ion-row>
+
+<!-- (ionScrollStart)="logScrollStart()"
+    (ionScroll)="logScrolling($event)"
+    (ionScrollEnd)="logScrollEnd()" -->
+<ion-content [scrollEvents]="true" color="dark">
+    <!-- Inicio Carrousel -->
+    <div
+        id="carouselExampleIndicators"
+        class="carousel slide"
+        data-bs-ride="carousel"
+        *ngFor="let cliente of clientes"
+    >
+        <ol class="carousel-indicators">
+            <li
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="0"
+                class="active"
+            ></li>
+            <li
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="1"
+            ></li>
+            <li
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="2"
+            ></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img
+                    src="{{cliente.imagen.grande}}"
+                    class="d-block w-100"
+                    alt="..."
+                />
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>{{cliente.nombre}}</h3>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img
+                    src="{{cliente.imagen.grande}}"
+                    class="d-block w-100"
+                    alt="..."
+                />
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>{{cliente.nombre}}</h3>
+                </div>
+            </div>
+            <!-- <div class="carousel-item">
+                <img
+                    src="assets/img/Vengadores Banner-.jpg"
+                    class="d-block w-100"
+                    alt="..."
+                />
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Vengadores Age of Ultron</h3>
+                </div>
+            </div> -->
+        </div>
+        <a
+            class="carousel-control-prev"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-bs-slide="prev"
+        >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a
+            class="carousel-control-next"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-bs-slide="next"
+        >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
+    </div>
+    <!-- Fin Carrousel -->
+    <ion-row class="botonera">
+        <ion-col>
+            <div class="iconos">
+                <ion-icon name="add-outline" size="large"></ion-icon>
+                <h5>Mi Lista</h5>
+            </div>
+        </ion-col>
+        <ion-col>
+            <div class="iconos reproducir">
+                <ion-icon
+                    name="play"
+                    size="small"
+                    class="ion-align-self-center"
+                ></ion-icon>
+                <h5>Reproducir</h5>
+            </div>
+        </ion-col>
+        <ion-col>
+            <div class="iconos">
+                <ion-icon
+                    name="information-circle-outline"
+                    size="large"
+                ></ion-icon>
+                <h5>Info</h5>
+            </div>
+        </ion-col>
+    </ion-row>
+    <!-- Section Peliculas Scroll -->
+    <section class="peliculas">
+        <h4>Populares en Cinespacio</h4>
+        <div class="scrollmenu">
+            <img src="assets/img/cover/bob.png" alt="cover bob esponja" />
+            <img src="assets/img/cover/dragon.png" alt="cover dragon" />
+            <img src="assets/img/cover/john.png" alt="cover john wick" />
+            <img src="assets/img/cover/matrix.png" alt="cover matrix" />
+            <img src="assets/img/cover/PrincesaMon.png" alt="cover princesa" />
+            <img src="assets/img/cover/santa.png" alt="cover santa" />
+        </div>
+    </section>
+    <!-- Fin Section Peliculas Scroll -->
+</ion-content>
