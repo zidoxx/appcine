@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { ApiService } from "../api.service";
+import { AlertController } from "@ionic/angular";
 
 @Component({
     selector: "app-tab1",
@@ -7,18 +8,48 @@ import { ApiService } from "../api.service";
     styleUrls: ["tab1.page.scss"],
 })
 export class Tab1Page {
-    clientes: any;
+    movies: any;
+    movie: any;
+    ruta: String;
 
-    constructor(private apiService: ApiService) {}
+    constructor(
+        private apiService: ApiService,
+        public alertController: AlertController
+    ) {}
 
     ionViewDidEnter() {
-        this.getClientes();
+        this.getPeliculas();
     }
 
-    getClientes() {
-        this.apiService.getPeliculas().subscribe((data) => {
-            this.clientes = data;
-            console.log(this.clientes);
+    getPeliculas() {
+        this.apiService.getPelis().subscribe((data) => {
+            this.movies = data;
         });
+    }
+
+    async presentAlertConfirm() {
+        const alert = await this.alertController.create({
+            cssClass: "my-custom-class",
+            header: "Favoritos",
+            message: "Deseas Agregar la pelicula!!!",
+            buttons: [
+                {
+                    text: "Cancel",
+                    role: "cancel",
+                    cssClass: "secondary",
+                    handler: (blah) => {
+                        console.log("Cancelado");
+                    },
+                },
+                {
+                    text: "Agregar",
+                    handler: () => {
+                        console.log("Agregado");
+                    },
+                },
+            ],
+        });
+
+        await alert.present();
     }
 }

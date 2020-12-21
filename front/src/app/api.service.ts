@@ -6,9 +6,15 @@ import { HttpClient } from "@angular/common/http";
 })
 export class ApiService {
     readonly urlApi = "http://localhost:3000/api/film";
+    urlOneMovie: any;
     constructor(private http: HttpClient) {}
 
-    getPeliculas() {
+    getPelis() {
         return this.http.get(this.urlApi);
+    }
+
+    getMovie(id: Number) {
+        this.urlOneMovie = `http://localhost:3000/api/film/${id}`;
+        return this.http.get(this.urlOneMovie);
     }
 }

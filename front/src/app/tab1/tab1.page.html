@@ -7,64 +7,37 @@
         </ion-button>
     </ion-toolbar>
 </ion-header>
-
-<!-- (ionScrollStart)="logScrollStart()"
-    (ionScroll)="logScrolling($event)"
-    (ionScrollEnd)="logScrollEnd()" -->
 <ion-content [scrollEvents]="true" color="dark">
     <!-- Inicio Carrousel -->
     <div
         id="carouselExampleIndicators"
         class="carousel slide"
         data-bs-ride="carousel"
-        *ngFor="let cliente of clientes"
     >
         <ol class="carousel-indicators">
             <li
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="0"
-                class="active"
-            ></li>
-            <li
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="1"
-            ></li>
-            <li
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="2"
+                data-target="#carouselExampleCaptions"
+                *ngFor="let item of movies;let index = index"
+                [attr.data-slide-to]="index"
             ></li>
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div
+                class="carousel-item"
+                *ngFor="let item of movies;let index = index;let isFirst = first"
+                [ngClass]="{active:isFirst}"
+            >
                 <img
-                    src="{{cliente.imagen.grande}}"
+                    [src]="item.imagen.grande"
                     class="d-block w-100"
-                    alt="..."
+                    [alt]="item.nombre"
+                    [routerLink]="['/movie', item.codigo]"
+                    routerDirection="forward"
                 />
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>{{cliente.nombre}}</h3>
+                    <h3>{{item.nombre}}</h3>
                 </div>
             </div>
-            <div class="carousel-item">
-                <img
-                    src="{{cliente.imagen.grande}}"
-                    class="d-block w-100"
-                    alt="..."
-                />
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>{{cliente.nombre}}</h3>
-                </div>
-            </div>
-            <!-- <div class="carousel-item">
-                <img
-                    src="assets/img/Vengadores Banner-.jpg"
-                    class="d-block w-100"
-                    alt="..."
-                />
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Vengadores Age of Ultron</h3>
-                </div>
-            </div> -->
         </div>
         <a
             class="carousel-control-prev"
@@ -88,22 +61,25 @@
     <!-- Fin Carrousel -->
     <ion-row class="botonera">
         <ion-col>
-            <div class="iconos">
-                <ion-icon name="add-outline" size="large"></ion-icon>
-                <h5>Mi Lista</h5>
+            <div class="iconos" (click)="presentAlertConfirm()">
+                <ion-icon name="heart" size="large"></ion-icon>
+                <h5>Favoritos</h5>
             </div>
         </ion-col>
-        <ion-col>
-            <div class="iconos reproducir">
-                <ion-icon
+        <!-- <ion-col>
+            <ion-button
+                expand="full"
+                [routerLink]="['/movie', item.codigo]"
+                routerDirection="forward"
+                ><ion-icon
                     name="play"
                     size="small"
                     class="ion-align-self-center"
-                ></ion-icon>
-                <h5>Reproducir</h5>
-            </div>
-        </ion-col>
-        <ion-col>
+                ></ion-icon
+                >Reproducir
+            </ion-button>
+        </ion-col> -->
+        <!-- <ion-col>
             <div class="iconos">
                 <ion-icon
                     name="information-circle-outline"
@@ -111,7 +87,7 @@
                 ></ion-icon>
                 <h5>Info</h5>
             </div>
-        </ion-col>
+        </ion-col> -->
     </ion-row>
     <!-- Section Peliculas Scroll -->
     <section class="peliculas">
