@@ -18,7 +18,6 @@ export class MoviePage implements OnInit {
     getOneMovie(id: Number) {
         this.apiService.getMovie(id).subscribe((data) => {
             this.movie = data;
-            console.log(data);
         });
     }
 
