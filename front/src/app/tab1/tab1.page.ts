@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ApiService } from "../api.service";
 import { AlertController } from "@ionic/angular";
 
@@ -7,7 +7,7 @@ import { AlertController } from "@ionic/angular";
     templateUrl: "tab1.page.html",
     styleUrls: ["tab1.page.scss"],
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit {
     movies: any;
     movie: any;
     ruta: String;
@@ -51,5 +51,9 @@ export class Tab1Page {
         });
 
         await alert.present();
+    }
+
+    ngOnInit() {
+        this.getPeliculas();
     }
 }
