@@ -31,7 +31,7 @@ export class Tab1Page {
         const alert = await this.alertController.create({
             cssClass: "my-custom-class",
             header: "Favoritos",
-            message: "Deseas Agregar la pelicula!!!",
+            message: "Deseas agregar a favoritos !!!",
             buttons: [
                 {
                     text: "Cancel",

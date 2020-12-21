@@ -42,6 +42,21 @@
                 </div>
             </ion-col>
         </ion-row>
+        <ion-row
+            class="botonera"
+            (click)="presentAlertConfirm(item.nombre, item.codigo)"
+        >
+            <ion-col>
+                <div class="iconos reproducir">
+                    <ion-icon
+                        name="heart"
+                        size="small"
+                        class="ion-align-self-center"
+                    ></ion-icon>
+                    <h5>Favoritos</h5>
+                </div>
+            </ion-col>
+        </ion-row>
     </div>
     <!-- Section Peliculas Scroll -->
     <section class="peliculas">
