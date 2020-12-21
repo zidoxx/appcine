@@ -1,0 +1,41 @@
+en este block de notas ira las agregaciones de la tabla que deberan ir en el .page.ts
+de cada pages
+/*AGREGAR FILMS*/
+async mensajeGuardar() {
+    const toast = await this.toastController.create({
+      message: 'Creación del la film exitosamente',
+      duration: 2000
+    });
+    toast.present();
+  }
+
+
+  agregarProducto(){
+    
+    let data ={
+       codigo:this.codigo,
+       nombre:this.nombre,
+       duracion:this.duracion,
+       descripcion:this.descripcion,
+       elenco:this.elenco,
+	creadores: this.creadores,
+	imagen: this.imagen,
+	co_categoria: this.co_categoria,
+	co_clasificacion: this.co_clasificacion
+    }
+
+    this.apiService.postProductos(data).subscribe(()=>{
+	codigo="",
+       	nombre="",
+       	duracion="",
+       	descripcion="",
+       	elenco="",
+	creadores="",
+	imagen="",
+	co_categoria="",
+	co_clasificacion="",
+      	this.mensajeGuardar();
+      
+    });
+
+  }

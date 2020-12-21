@@ -4,16 +4,16 @@ const Favorite_listShema = mongoose.Schema({
     codigo: {
         type: Number,
         min: 1,
-        unique: true,
+        unique: true
     },
-    cod_usuario: {
-        type: Number,
-        min: 1,
-    },
+    // cod_usuario: {
+    //     type: Number,
+    //     min: 1,
+    // },
     cod_pelicula: {
         type: Number,
-        min: 1,
-    },
+        min: 1
+    }
 });
 
-// module.exports = mongoose.model("Pelicula", Favorite_listShema);
+module.exports = mongoose.model("Pelicula", Favorite_listShema);

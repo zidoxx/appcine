@@ -23,6 +23,8 @@ app.use(cors());
 app.use(require("./routers/favorite_lis.router"));
 app.use(require("./routers/film.router"));
 app.use(require("./routers/user.router"));
+app.use(require("./routers/classification.router"));
+app.use(require("./routers/category.router"));
 
 app.set("port", process.env.PORT || 3000);
 app.listen(app.get("port"), () => {

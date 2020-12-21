@@ -37,8 +37,8 @@ const create = (req, res) => {
     const favorite_list = new Favorite_list({
         codigo: req.body.codigo,
         nombre: req.body.nombre,
-        co_usuario: req.body.co_usuario,
-        co_pelicula: req.body.co_pelicula,
+        // co_usuario: req.body.co_usuario,
+        co_pelicula: req.body.co_pelicula
     });
 
     favorite_list
@@ -60,8 +60,8 @@ const update = (req, res) => {
         {
             $set: {
                 nombre: req.body.nombre,
-                co_usuario: req.body.co_usuario,
-                co_pelicula: req.body.co_pelicula,
+                // co_usuario: req.body.co_usuario,
+                co_pelicula: req.body.co_pelicula
             },
         }
     )
