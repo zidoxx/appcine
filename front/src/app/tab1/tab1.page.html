@@ -14,13 +14,6 @@
         class="carousel slide"
         data-bs-ride="carousel"
     >
-        <!-- <ol class="carousel-indicators">
-            <li
-                data-target="#carouselExampleCaptions"
-                *ngFor="let item of movies;let index = index"
-                [attr.data-slide-to]="index"
-            ></li>
-        </ol> -->
         <div class="carousel-inner">
             <div
                 class="carousel-item"
@@ -65,6 +58,7 @@
         <h4>Populares en Cinespacio</h4>
         <div class="scrollmenu">
             <img
+                class="img"
                 *ngFor="let item of movies;let index = index;let isFirst = first"
                 [src]="item.imagen.pequeno"
                 alt="cover bob esponja"
