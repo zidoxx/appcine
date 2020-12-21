@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ApiService } from "../api.service";
 import { ActivatedRoute } from "@angular/router";
-import { AlertController } from "@ionic/angular";
+import { AlertController, ToastController } from "@ionic/angular";
 
 @Component({
     selector: "app-movie",
@@ -14,13 +14,30 @@ export class MoviePage implements OnInit {
     constructor(
         private activatedRoute: ActivatedRoute,
         private apiService: ApiService,
-        public alertController: AlertController
+        public alertController: AlertController,
+        public toastController: ToastController
     ) {}
 
     getOneMovie(id: Number) {
         this.apiService.getMovie(id).subscribe((data) => {
             this.movie = data;
         });
+    }
+
+    async AgregadoFavs() {
+        const toast = await this.toastController.create({
+            message: "Agregado a favoritos.",
+            duration: 2000,
+        });
+        toast.present();
+    }
+
+    async Descargas() {
+        const toast = await this.toastController.create({
+            message: "Añadido a Descargas.",
+            duration: 2000,
+        });
+        toast.present();
     }
 
     async presentAlertConfirm(nomPeli: String, codPeli: Number) {
@@ -41,6 +58,7 @@ export class MoviePage implements OnInit {
                 {
                     text: "Agregar",
                     handler: () => {
+                        this.AgregadoFavs();
                         console.log("Agregado");
                     },
                 },

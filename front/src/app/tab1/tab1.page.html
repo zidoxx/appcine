@@ -14,13 +14,6 @@
         class="carousel slide"
         data-bs-ride="carousel"
     >
-        <!-- <ol class="carousel-indicators">
-            <li
-                data-target="#carouselExampleCaptions"
-                *ngFor="let item of movies;let index = index"
-                [attr.data-slide-to]="index"
-            ></li>
-        </ol> -->
         <div class="carousel-inner">
             <div
                 class="carousel-item"
@@ -59,42 +52,19 @@
         </a>
     </div>
     <!-- Fin Carrousel -->
-    <ion-row class="botonera">
-        <ion-col>
-            <div class="iconos" (click)="presentAlertConfirm()">
-                <ion-icon name="heart" size="large"></ion-icon>
-                <h5>Favoritos</h5>
-            </div>
-        </ion-col>
-    </ion-row>
 
     <!-- Section Peliculas Scroll -->
     <section class="peliculas">
         <h4>Populares en Cinespacio</h4>
         <div class="scrollmenu">
-            <img src="assets/img/cover/bob.png" alt="cover bob esponja" />
-            <img src="assets/img/cover/dragon.png" alt="cover dragon" />
-            <img src="assets/img/cover/john.png" alt="cover john wick" />
-            <img src="assets/img/cover/matrix.png" alt="cover matrix" />
-            <img src="assets/img/cover/PrincesaMon.png" alt="cover princesa" />
-            <img src="assets/img/cover/santa.png" alt="cover santa" />
-        </div>
-    </section>
-    <!-- Fin Section Peliculas Scroll -->
-
-    <!-- Section Peliculas Scroll -->
-    <section class="peliculas">
-        <h4>Anime en Cinespacio</h4>
-        <div class="scrollmenu">
             <img
-                src="assets/img/cover/Chihiro.png"
-                alt="cover El viaje de chihiro"
+                class="img"
+                *ngFor="let item of movies;let index = index;let isFirst = first"
+                [src]="item.imagen.pequeno"
+                alt="cover bob esponja"
+                [routerLink]="['/movie', item.codigo]"
+                routerDirection="forward"
             />
-            <img
-                src="assets/img/cover/PrincesaMon.png"
-                alt="cover Princesa Mononoke"
-            />
-            <img src="assets/img/cover/YourName.png" alt="cover your name" />
         </div>
     </section>
     <!-- Fin Section Peliculas Scroll -->
