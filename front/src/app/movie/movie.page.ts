@@ -10,6 +10,7 @@ import { AlertController, ToastController } from "@ionic/angular";
 })
 export class MoviePage implements OnInit {
     movie: any;
+    movies: any;
     passedId = null;
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -24,10 +25,17 @@ export class MoviePage implements OnInit {
         });
     }
 
+    getPeliculas() {
+        this.apiService.getPelis().subscribe((data) => {
+            this.movies = data;
+        });
+    }
+
     async AgregadoFavs() {
         const toast = await this.toastController.create({
             message: "Agregado a favoritos.",
             duration: 2000,
+            color: "success",
         });
         toast.present();
     }
@@ -36,6 +44,7 @@ export class MoviePage implements OnInit {
         const toast = await this.toastController.create({
             message: "Añadido a Descargas.",
             duration: 2000,
+            color: "tertiary",
         });
         toast.present();
     }
@@ -71,5 +80,6 @@ export class MoviePage implements OnInit {
     ngOnInit() {
         this.passedId = this.activatedRoute.snapshot.paramMap.get("id");
         this.getOneMovie(this.passedId);
+        this.getPeliculas();
     }
 }

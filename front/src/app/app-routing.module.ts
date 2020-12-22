@@ -19,6 +19,18 @@ const routes: Routes = [
         loadChildren: () =>
             import("./movie/movie.module").then((m) => m.MoviePageModule),
     },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
+  },
+  {
+    path: 'update',
+    loadChildren: () => import('./update/update.module').then( m => m.UpdatePageModule)
+  },
+  {
+    path: 'delete',
+    loadChildren: () => import('./delete/delete.module').then( m => m.DeletePageModule)
+  },
 ];
 @NgModule({
     imports: [

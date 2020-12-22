@@ -9,25 +9,25 @@ const FilmShema = mongoose.Schema({
     nombre: {
         type: String,
         minlength: 5,
-        requiere: true,
+        require: true,
     },
     duracion: {
         type: String,
-        minlength: 5,
-        requiere: true,
+        minlength: 2,
+        require: true,
     },
     descripcion: {
         type: String,
-        minlength: 8,
-        requiere: true,
+        minlength: 5,
+        require: true,
     },
     elenco: {
         type: String,
-        minlength: 4,
+        minlength: 1,
     },
     creadores: {
         type: String,
-        minlength: 4,
+        minlength: 1,
     },
     imagen: {
         pequeno: {
@@ -49,4 +49,4 @@ const FilmShema = mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model("Pelicula", FilmShema);
+module.exports = mongoose.model("peliculas", FilmShema);

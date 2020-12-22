@@ -12,10 +12,17 @@ const routes: Routes = [
                 loadChildren: () =>
                     import("../tab1/tab1.module").then((m) => m.Tab1PageModule),
             },
+            // {
+            //     path: "tab3",
+            //     loadChildren: () =>
+            //         import("../tab3/tab3.module").then((m) => m.Tab3PageModule),
+            // },
             {
-                path: "tab3",
+                path: "admin",
                 loadChildren: () =>
-                    import("../tab3/tab3.module").then((m) => m.Tab3PageModule),
+                    import("../admin/admin.module").then(
+                        (m) => m.AdminPageModule
+                    ),
             },
             {
                 path: "",

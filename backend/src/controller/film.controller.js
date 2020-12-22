@@ -17,12 +17,10 @@ const findOne = (req, res) => {
     Film.find({ codigo: cod })
         .then((films) => {
             if (films.length == 0) {
-                console.log("No encontró films");
                 res.status(404).send({
                     message: "No encontró el films",
                 });
             } else {
-                console.log("Encontró films");
                 res.status(200).send(films);
             }
         })
@@ -64,16 +62,11 @@ const update = (req, res) => {
         {
             $set: {
                 nombre: req.body.nombre,
-                duracion: req.body.duracion,
                 descripcion: req.body.descripcion,
-                elenco: req.body.elenco,
-                creadores: req.body.creadores,
                 imagen: {
                     pequeno: req.body.imagen.pequeno,
                     grande: req.body.imagen.grande,
                 },
-                co_categoria: req.body.co_categoria,
-                co_clasificacion: req.body.co_clasificacion,
             },
         }
     )

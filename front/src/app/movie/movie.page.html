@@ -62,12 +62,14 @@
     <section class="peliculas">
         <h4>Populares en Cinespacio</h4>
         <div class="scrollmenu">
-            <img src="assets/img/cover/bob.png" alt="cover bob esponja" />
-            <img src="assets/img/cover/dragon.png" alt="cover dragon" />
-            <img src="assets/img/cover/john.png" alt="cover john wick" />
-            <img src="assets/img/cover/matrix.png" alt="cover matrix" />
-            <img src="assets/img/cover/PrincesaMon.png" alt="cover princesa" />
-            <img src="assets/img/cover/santa.png" alt="cover santa" />
+            <img
+                class="img"
+                *ngFor="let item of movies;let index = index;let isFirst = first"
+                [src]="item.imagen.pequeno"
+                alt="cover bob esponja"
+                [routerLink]="['/movie', item.codigo]"
+                routerDirection="forward"
+            />
         </div>
     </section>
     <!-- Fin Section Peliculas Scroll -->
